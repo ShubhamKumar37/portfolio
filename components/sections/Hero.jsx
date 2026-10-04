@@ -80,16 +80,16 @@ export default function Hero() {
                     {/* CTA buttons */}
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <Button asChild size="lg" className="group">
-                            <Link href="#projects">
+                            <Link href="#projects" className="flex gap-1" >
                                 View Projects
                                 <ArrowUpRight className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                             </Link>
                         </Button>
 
                         <Button asChild size="lg" variant="outline">
-                            <a href={links.resume} download>
-                                <Download />
+                            <a href={links.resume} className="flex gap-2" download>
                                 Download Resume
+                                <Download />
                             </a>
                         </Button>
                     </div>

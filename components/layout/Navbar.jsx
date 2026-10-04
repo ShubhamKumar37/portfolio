@@ -39,6 +39,10 @@ const navigation = [
         label: "Contact",
         href: "#contact",
     },
+    {
+        label: "Skills",
+        href: "#skills"
+    },
 ];
 
 export default function Navbar() {
@@ -76,10 +80,15 @@ export default function Navbar() {
 
                 {/* Desktop Actions */}
                 <div className="hidden items-center gap-2 lg:flex">
-                    <Button asChild variant="outline" size="sm">
-                        <a href="/resume.pdf" download>
-                            <Download />
-                            Resume
+                    <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="group rounded-full px-4"
+                    >
+                        <a href="/resume.pdf" className="flex gap-2" download>
+                            <span>Resume</span>
+                            <Download className="size-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
                         </a>
                     </Button>
 

@@ -1,23 +1,39 @@
+"use client";
+
 import Image from "next/image";
 
 import { ArrowUpRight, ExternalLink } from "lucide-react";
+
 import { FaGithub } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
+
 import {
     Card,
     CardContent,
     CardFooter,
     CardHeader,
 } from "@/components/ui/card";
+
 import { Badge } from "@/components/ui/badge";
 
 export default function ProjectCard({ project }) {
     const hasGithub = Boolean(project.github);
     const hasLive = Boolean(project.live);
 
+    const projectUrl = project.live || project.github;
+
+    const handleCardClick = () => {
+        if (!projectUrl) return;
+
+        window.open(projectUrl, "_blank", "noopener,noreferrer");
+    };
+
     return (
-        <Card className="group flex h-full flex-col overflow-hidden border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
+        <Card
+            onClick={handleCardClick}
+            className="group flex h-full cursor-pointer flex-col overflow-hidden border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
+        >
             {/* Project image */}
             <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-muted">
                 {project.image ? (
@@ -40,6 +56,12 @@ export default function ProjectCard({ project }) {
                     <Badge className="absolute left-4 top-4">
                         Featured
                     </Badge>
+                )}
+
+                {projectUrl && (
+                    <div className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/80 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
+                        <ArrowUpRight className="size-4" />
+                    </div>
                 )}
             </div>
 
@@ -82,7 +104,13 @@ export default function ProjectCard({ project }) {
             {/* Project links */}
             <CardFooter className="gap-2 border-t border-border/60 pt-5">
                 {hasGithub ? (
-                    <Button asChild variant="outline" size="sm" className="group/github">
+                    <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="group/github"
+                        onClick={(event) => event.stopPropagation()}
+                    >
                         <a
                             href={project.github}
                             target="_blank"
@@ -105,7 +133,12 @@ export default function ProjectCard({ project }) {
                 )}
 
                 {hasLive ? (
-                    <Button asChild size="sm" className="group/live">
+                    <Button
+                        asChild
+                        size="sm"
+                        className="group/live"
+                        onClick={(event) => event.stopPropagation()}
+                    >
                         <a
                             href={project.live}
                             target="_blank"
