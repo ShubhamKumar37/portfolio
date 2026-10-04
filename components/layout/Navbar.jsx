@@ -15,34 +15,12 @@ import {
 import ThemeToggle from "@/components/theme-toggle";
 
 const navigation = [
-    {
-        label: "About",
-        href: "#about",
-    },
-    {
-        label: "Skills",
-        href: "#skills",
-    },
-    {
-        label: "Experience",
-        href: "#experience",
-    },
-    {
-        label: "Projects",
-        href: "#projects",
-    },
-    {
-        label: "DSA",
-        href: "#dsa",
-    },
-    {
-        label: "Contact",
-        href: "#contact",
-    },
-    {
-        label: "Skills",
-        href: "#skills"
-    },
+    { label: "About", href: "/about" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
+    { label: "DSA", href: "/#dsa" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {

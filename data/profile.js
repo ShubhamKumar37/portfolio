@@ -11,4 +11,5 @@ export const profile = {
     location: "Delhi, India",
 
     availability: "Open to opportunities",
+    image: "https://res.cloudinary.com/dtxu5ha3c/image/upload/v1791109121/Certification/PassPort_size_photo_b41ro1.jpg"
 };

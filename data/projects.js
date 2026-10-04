@@ -15,8 +15,8 @@ export const projects = [
             "shadcn/ui",
         ],
 
-        github: "",
-        live: "",
+        github: "https://github.com/ShubhamKumar37/my-gpt",
+        live: "https://my-gpt-rust.vercel.app/",
 
         image: "/projects/my-gpt.jpg",
     },
@@ -38,7 +38,7 @@ export const projects = [
             "JWT",
         ],
 
-        github: "",
+        github: "https://github.com/ShubhamKumar37/Study-Again",
         live: "",
 
         image: "/projects/study-notion.jpg",
@@ -61,8 +61,8 @@ export const projects = [
             "Cloudinary",
         ],
 
-        github: "",
-        live: "",
+        github: "https://github.com/ShubhamKumar37/shudhh-apk-MERN",
+        live: "https://shudhh-apk-frontend-lwzh.vercel.app/",
 
         image: "/projects/online-app-store.jpg",
     },

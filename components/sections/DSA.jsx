@@ -107,7 +107,7 @@ export default function DSA() {
                                                 key={platform.label}
                                                 variant="outline"
                                                 disabled
-                                                className="cursor-not-allowed opacity-50"
+                                                className="cursor-not-allowed opacity-50  flex gap-2"
                                             >
                                                 {platform.label}
                                                 <ExternalLink />
@@ -126,6 +126,7 @@ export default function DSA() {
                                                 href={platform.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                className=" flex "
                                             >
                                                 {platform.label}
                                                 <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -1,6 +1,5 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
 
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
@@ -21,21 +20,17 @@ export default function ProjectCard({ project }) {
     const hasGithub = Boolean(project.github);
     const hasLive = Boolean(project.live);
 
-    const projectUrl = project.live || project.github;
-
-    const handleCardClick = () => {
-        if (!projectUrl) return;
-
-        window.open(projectUrl, "_blank", "noopener,noreferrer");
-    };
-
     return (
-        <Card
-            onClick={handleCardClick}
-            className="group flex h-full cursor-pointer flex-col overflow-hidden border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
-        >
+        <Card className="group relative flex h-full cursor-pointer flex-col overflow-hidden border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
+            {/* Entire card navigation */}
+            <Link
+                href={`/projects/${project.id}`}
+                aria-label={`View ${project.title} project details`}
+                className="absolute inset-0 z-0 rounded-[inherit]"
+            />
+
             {/* Project image */}
-            <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-muted">
+            <div className="relative z-10 aspect-[16/9] overflow-hidden border-b border-border bg-muted pointer-events-none">
                 {project.image ? (
                     <Image
                         src={project.image}
@@ -58,15 +53,13 @@ export default function ProjectCard({ project }) {
                     </Badge>
                 )}
 
-                {projectUrl && (
-                    <div className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/80 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
-                        <ArrowUpRight className="size-4" />
-                    </div>
-                )}
+                <div className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full border border-border/60 bg-background/80 opacity-0 backdrop-blur transition-all duration-300 group-hover:opacity-100">
+                    <ArrowUpRight className="size-4" />
+                </div>
             </div>
 
             {/* Project heading */}
-            <CardHeader className="space-y-3">
+            <CardHeader className="relative z-10 space-y-3 pointer-events-none">
                 <div className="flex items-start justify-between gap-4">
                     <div>
                         <h3 className="text-xl font-semibold tracking-tight">
@@ -83,7 +76,7 @@ export default function ProjectCard({ project }) {
             </CardHeader>
 
             {/* Project content */}
-            <CardContent className="flex-1">
+            <CardContent className="relative z-10 flex-1 pointer-events-none">
                 <p className="text-sm leading-6 text-muted-foreground">
                     {project.description}
                 </p>
@@ -102,19 +95,19 @@ export default function ProjectCard({ project }) {
             </CardContent>
 
             {/* Project links */}
-            <CardFooter className="gap-2 border-t border-border/60 pt-5">
+            <CardFooter className="relative z-20 gap-2 border-t border-border/60 pt-5">
                 {hasGithub ? (
                     <Button
                         asChild
                         variant="outline"
                         size="sm"
                         className="group/github"
-                        onClick={(event) => event.stopPropagation()}
                     >
                         <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="flex gap-2"
                         >
                             <FaGithub className="size-4 transition-transform group-hover/github:scale-110" />
                             GitHub
@@ -125,7 +118,7 @@ export default function ProjectCard({ project }) {
                         variant="outline"
                         size="sm"
                         disabled
-                        className="cursor-not-allowed"
+                        className="cursor-not-allowed flex gap-2"
                     >
                         <FaGithub className="size-4" />
                         GitHub
@@ -137,12 +130,12 @@ export default function ProjectCard({ project }) {
                         asChild
                         size="sm"
                         className="group/live"
-                        onClick={(event) => event.stopPropagation()}
                     >
                         <a
                             href={project.live}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="flex"
                         >
                             <ExternalLink className="size-4 transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5" />
                             Live
@@ -152,7 +145,7 @@ export default function ProjectCard({ project }) {
                     <Button
                         size="sm"
                         disabled
-                        className="cursor-not-allowed"
+                        className="cursor-not-allowed flex"
                     >
                         <ExternalLink className="size-4" />
                         Live

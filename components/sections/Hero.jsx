@@ -106,10 +106,10 @@ export default function Hero() {
                                         variant="ghost"
                                         size="sm"
                                         disabled
-                                        className="cursor-not-allowed opacity-50"
+                                        className="cursor-not-allowed opacity-"
                                     >
-                                        {Icon && <Icon />}
                                         {social.label}
+                                        {Icon && <Icon />}
                                     </Button>
                                 );
                             }
@@ -129,6 +129,7 @@ export default function Hero() {
                                         target={isExternal ? "_blank" : undefined}
                                         rel={isExternal ? "noopener noreferrer" : undefined}
                                         aria-label={`Visit ${social.label} `}
+                                        className="flex gap-2"
                                     >
                                         {Icon && (
                                             <Icon className="transition-transform duration-200 group-hover:scale-110" />
@@ -170,7 +171,7 @@ export default function Hero() {
                         <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-2xl">
                             <div className="relative aspect-square w-64 overflow-hidden rounded-[1.5rem] sm:w-80 lg:w-[26rem]">
                                 <Image
-                                    src="/profile/profile-1.jpg"
+                                    src={profile.image}
                                     alt={`${profile.name} profile`}
                                     fill
                                     priority
