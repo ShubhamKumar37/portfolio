@@ -4,6 +4,71 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+@layer components {
+  .project-rich-content p {
+    margin-block: 1rem;
+  }
+
+  .project-rich-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+    font-size: 1.125rem;
+    font-weight: 650;
+    line-height: 1.6;
+  }
+
+  .project-rich-content strong,
+  .project-rich-content b {
+    color: var(--foreground);
+    font-weight: 650;
+  }
+
+  .project-rich-content ul,
+  .project-rich-content ol {
+    margin-block: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .project-rich-content ul {
+    list-style-type: disc;
+  }
+
+  .project-rich-content ol {
+    list-style-type: decimal;
+  }
+
+  .project-rich-content li {
+    margin-block: 0.5rem;
+    padding-left: 0.25rem;
+  }
+
+  .project-rich-content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    overflow-wrap: anywhere;
+  }
+
+  .project-rich-content code {
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    background: var(--muted);
+    padding: 0.15rem 0.35rem;
+    color: var(--foreground);
+    font-size: 0.875em;
+  }
+
+  .project-rich-content blockquote {
+    margin-block: 1.5rem;
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+    font-style: italic;
+  }
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

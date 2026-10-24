@@ -17,8 +17,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 export default function ProjectCard({ project }) {
-    const hasGithub = Boolean(project.github);
-    const hasLive = Boolean(project.live);
+    const hasGithub = Boolean(project.links?.github);
+    const hasLive = Boolean(project.links?.live);
 
     return (
         <Card className="group relative flex h-full cursor-pointer flex-col overflow-hidden border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
@@ -104,7 +104,7 @@ export default function ProjectCard({ project }) {
                         className="group/github"
                     >
                         <a
-                            href={project.github}
+                            href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex gap-2"
@@ -132,7 +132,7 @@ export default function ProjectCard({ project }) {
                         className="group/live"
                     >
                         <a
-                            href={project.live}
+                            href={project.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex"
